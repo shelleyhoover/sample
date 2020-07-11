@@ -1,95 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
- <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Passaro Scholarships</title>
-
-
-
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"> 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>  
+<title>UPP 465</title>
+<link rel="stylesheet" href="style.css"> 
 </head>
+
+
 <body>
-    <div id = "info"> 
-      <h2 style>2018 UIC Passaro Scholarship Travel Locations<h2></div>
-		<div id="map" style="width: 800px; height: 800px"></div>
 
-
-		<script>
-  		  var map = L.map('map',{ center: [34.54, -41.20], zoom: 2});
-
-  		  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { attribution: '© OpenStreetMap' }).addTo(map);
-
-   			    $.getJSON("passaro.geojson",function(data){
-    			// add GeoJSON layer to the map once the file is loaded
-   				 L.geoJson(data, {
-
-				    onEachFeature: function( feature, layer ){
-				      layer.bindPopup( "<strong>" + feature.properties.NAME_ENGLI )
-				    }
-  					}  ).addTo(map);
-  				});
-
-		</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- <div id="map2" style="width: 800px; height: 800px"></div>
-    <script>
-        var map2 = L.map2('map2',{ center: [34.15, -118.40], zoom: 11});
-
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { attribution: '© OpenStreetMap' }).addTo(map2);
-
-          $.getJSON("aduGrid.geojson",function(zips){
-          L.geoJson(zips, {
-            style: function(feature){
-              var fillColor,
-                  density = feature.properties.NUMPOINTS;
-              if ( density > 250 ) fillColor = "#006837";
-              else if ( density > 200 ) fillColor = "#31a354";
-              else if ( density > 150 ) fillColor = "#78c679";
-              else if ( density > 75 ) fillColor = "#c2e699";
-              else if ( density > 0 ) fillColor = "#ffffcc";
-              else fillColor = "#f7f7f7";  // no data
-              return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .6 };
-            },
-            onEachFeature: function( feature, layer ){
-              layer.bindPopup(  feature.properties.NUMPOINTS+ " parcels eligible for an ADU" )
-            }
-            }  ).addTo(map2);
-        }); 
-
-            $.getJSON("colleges.geojson",function(data){
-          // add GeoJSON layer to the map once the file is loaded
-           L.geoJson(data, {
-
-            onEachFeature: function( feature, layer ){
-              layer.bindPopup( "<strong>" + feature.properties.College + "</strong><br/>" + feature.properties.PrePerHome+ " of students are homeless" )
-            }
-            }  ).addTo(map2);
-          });
-
-    </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
-<!--     <div id = "info" width = 800px> 
-      <h3> 1 out  of 5 Community College Students in Los Angeles is Homeless </h3> </div>
-    <div id = "info-text">
-      <p style>In an effort to ease the current housing crises, the city of Los Angeles recently adopted ordinances to simplify the permitting and building of Accessory Dwelling Units, (ADUs, aso known as Backyard Homes or Granny Flats) on parcels zoned for single-family homes. 
-<p>The organization Our Backyard Homes (OBH) is looking to utilize these ordinances to provide housing scholarships for L.A. Community College students to live in an ADU.  </p>
-<p>With 75% of residential land in Los Angeles zoned for parcels, there is immense potential for building Backyard Homes. </p>
-<p> Learn more about Our Backyard Homes student housing scholarship program at <a href="https://www.ourbackyardhomes.org/">ourbackyardhomes.org</a> </p> -->
-
+<div class = "intro">
+<h1>Chicago Early Learning Centers</h1>
+<h3>Exploring access to ELC's in Chicago communities with high birth rates</h3>
 </div>
 
+<!--explains the problem of access to childcare-->
+<div class = "childcare">
+	<p> Of the 700 ELC's in the City of Chicago, only 150 of them serve children under the age of 3.  Limited access to care for newborns puts a burden on parents. </p>
+	<p> Learn more about early learning centers <a href="https://www.chicago.gov/city/en/sites/chicagoearlylearning/home.html">here</a>
+
+	</div>
+
+	<!--We will put our map in this div-->
+		<style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Early Learning Centers Compared to Neighborhood Birth Rates" src="//univofillinois.maps.arcgis.com/apps/Embed/index.html?webmap=ef8026ec7d5443fc98b2be7468f133fc&extent=-88.1687,41.6162,-87.1545,42.0557&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe></div>
+
+
 </body>
+
 </html>
